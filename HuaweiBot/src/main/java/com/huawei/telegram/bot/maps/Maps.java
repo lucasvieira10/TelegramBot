@@ -58,10 +58,10 @@ public class Maps {
 	 * @return url.
 	 */
 	private String getURL() {
-		String url = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+		String url = GoogleEnum.URL.getValue();
 		url += location;
 		
-		String key = "&key=AIzaSyAM9oKREbslfnIDFDKG_okBEfUwcvS9NjQ";
+		String key = GoogleEnum.KEY.getValue();
 		url += key;
 		
 		return url;
@@ -82,10 +82,11 @@ public class Maps {
 			jsonString = Jsoup.connect(url).ignoreContentType(true).execute().body();
 			JSONObject obj = new JSONObject(jsonString);
 			
-			JSONArray results = obj.getJSONArray("results");
+			JSONArray results = obj.getJSONArray(LocationEnum.RESULTS.getValue());
 			JSONObject firstResult = results.getJSONObject(0);
 			
-			jsonLocation = firstResult.getJSONObject("geometry").getJSONObject("location");
+			jsonLocation = firstResult.getJSONObject(LocationEnum.GEOMETRY.getValue())
+					.getJSONObject(LocationEnum.LOCATION.getValue());
 			
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
@@ -99,7 +100,7 @@ public class Maps {
 	 */
 	private void estimatedLatitude() {
 		JSONObject jsonLocation = getJSONLocation();
-		this.latitude = jsonLocation.getDouble("lat");
+		this.latitude = jsonLocation.getDouble(LocationEnum.LATITUDE.getValue());
 	}
 	
 	/**
@@ -107,6 +108,6 @@ public class Maps {
 	 */
 	private void estimatedLongitude() {
 		JSONObject jsonLocation = getJSONLocation();
-		this.longitude = jsonLocation.getDouble("lng");
+		this.longitude = jsonLocation.getDouble(LocationEnum.LONGITUDE.getValue());
 	}
 }
