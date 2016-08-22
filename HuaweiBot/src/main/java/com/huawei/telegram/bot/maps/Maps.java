@@ -58,11 +58,11 @@ public class Maps {
 	 * @return url.
 	 */
 	private String getURL() {
-		String url = GoogleEnum.URL.getValue();
-		url += location;
+		String url = "";
 		
-		String key = GoogleEnum.KEY.getValue();
-		url += key;
+		url += GoogleEnum.URL.getValue();
+		url += location;
+		url += GoogleEnum.KEY.getValue();
 		
 		return url;
 	}

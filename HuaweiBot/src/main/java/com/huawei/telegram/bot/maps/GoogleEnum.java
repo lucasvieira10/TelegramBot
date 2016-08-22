@@ -1,5 +1,11 @@
 package com.huawei.telegram.bot.maps;
 
+/**
+ * Enums for representation of Google Maps constants.
+ * 
+ * @author Lucas Lima Vieira
+ *
+ */
 public enum GoogleEnum {
 
 	URL("https://maps.googleapis.com/maps/api/geocode/json?address="),

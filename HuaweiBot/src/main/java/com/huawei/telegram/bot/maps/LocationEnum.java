@@ -1,5 +1,11 @@
 package com.huawei.telegram.bot.maps;
 
+/**
+ * Enums for representation of JSON location constants.
+ * 
+ * @author Lucas Lima Vieira
+ *
+ */
 public enum LocationEnum {
 
 	RESULTS("results"), 
