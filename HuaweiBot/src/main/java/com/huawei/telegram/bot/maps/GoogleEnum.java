@@ -3,7 +3,7 @@ package com.huawei.telegram.bot.maps;
 /**
  * Enums for representation of Google Maps constants.
  * 
- * @author Lucas Lima Vieira
+ * @author Lucas Lima Vieira.
  *
  */
 public enum GoogleEnum {
